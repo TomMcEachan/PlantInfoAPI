@@ -8,7 +8,7 @@ app.use('/api/temperature', require("./routes/temperature"))
 app.use("/api/humidity", require("./routes/humidity"))
 
 
-app.listen(5000, () => {
+app.listen(5001, () => {
     console.log("Listening on port 5000")
 })
 
