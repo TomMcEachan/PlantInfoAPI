@@ -1,0 +1,38 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model humidityData {
+  ID        String    @id @map("gc_pub_sub_id") @db.VarChar(16)
+  deviceID  String?   @map("device_id") @db.VarChar(24)
+  event     String?   @db.VarChar(50)
+  humidity  String    @db.VarChar(255)
+  published DateTime? @map("published_at") @db.DateTime(0)
+
+  @@map("humidity_data")
+}
+
+model moistureData {
+  ID        String    @id @map("gc_pub_sub_id") @db.VarChar(16)
+  deviceID  String?   @map("device_id") @db.VarChar(24)
+  event     String?   @db.VarChar(50)
+  moisture  String    @db.VarChar(255)
+  published DateTime? @map("published_at") @db.DateTime(0)
+
+  @@map("moisture_data")
+}
+
+model temperatureData {
+  ID          String    @id @map("gc_pub_sub_id") @db.VarChar(16)
+  deviceID    String?   @map("device_id") @db.VarChar(24)
+  event       String?   @db.VarChar(50)
+  temperature String    @db.VarChar(255)
+  published   DateTime? @map("published_at") @db.DateTime(0)
+
+  @@map("temperature_data")
+}
