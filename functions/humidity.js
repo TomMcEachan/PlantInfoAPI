@@ -2,7 +2,6 @@ const { PrismaClient } = require("@prisma/client")
 
 const {humidityData} = new PrismaClient();
 
-
 exports.handler = async (event, context, callback) => {
     try {
         const humidity = await humidityData.findMany({
