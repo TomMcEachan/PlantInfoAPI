@@ -1,6 +1,16 @@
 node_modules
-# Keep environment variables out of version control
-.env
+yarn-error.log
+dist
+build
+.DS_Store
+examples
+tmp
+pnpm-debug.log
+sandbox
+*.tsbuildinfo
 
 # Local Netlify folder
 .netlify
+
+# Ignore files containing environment variables
+.env*

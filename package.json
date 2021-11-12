@@ -1,27 +1,17 @@
 {
-  "name": "plantinfoapi",
-  "version": "1.0.0",
-  "description": "This is an api for my IoT project",
-  "main": "index.js",
-  "scripts": {
-    "build": "npm run build index.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/TomMcEachan/PlantInfoAPI.git"
-  },
-  "keywords": [
-    "[]"
-  ],
-  "author": "Tom McEachan",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/TomMcEachan/PlantInfoAPI/issues"
-  },
-  "homepage": "https://github.com/TomMcEachan/PlantInfoAPI#readme",
-  "dependencies": {
-    "client": "^0.0.1",
-    "node": "^17.0.1",
-    "prisma": "^3.4.2"
+    "name": "plantinfoapi",
+    "version": "1.0.0",
+    "main": "index.js",
+    "license": "MIT",
+    "devDependencies": {
+      "prisma": "2.24.1",
+      "netlify-cli": "3.37.1"
+    },
+    "scripts": {
+      "build": "prisma generate",
+      "dev": "netlify dev"
+    },
+    "dependencies": {
+      "@prisma/client": "2.24.1"
+    }
   }
-}
