@@ -4,7 +4,7 @@ const {moistureData} = new PrismaClient();
 
 exports.handler = async (event, context, callback) => {
     try {
-        const moisture = await moistureData.post.findMany({
+        const moisture = await moistureData.findMany({
             select: {
                 moisture: true,
                 published: true,
