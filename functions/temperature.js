@@ -11,7 +11,7 @@ exports.handler = async (event, context, callback) => {
                 deviceID: true
             },
             where: {
-                humidity: {
+                temperature: {
                     not: "0",
                 },
             },
