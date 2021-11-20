@@ -10,6 +10,7 @@ exports.handler = async (event, context, callback) => {
     };
     try {
         const moisture = await moistureData.findMany({
+            take: 10,
             select: {
                 moisture: true,
                 published: true,

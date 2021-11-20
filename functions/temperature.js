@@ -10,6 +10,7 @@ exports.handler = async (event, context, callback) => {
     };
     try {
         const temperature = await temperatureData.findMany({
+            take: 10,
             select: {
                 temperature: true,
                 published: true,
@@ -17,12 +18,12 @@ exports.handler = async (event, context, callback) => {
             },
             where: {
                 temperature: {
-                    not: "0",
+                    not: "0.0",
                 },
             },
             orderBy: {
                 published: 'desc'
-            }
+            },
         })
         return {
             statusCode: 200,
