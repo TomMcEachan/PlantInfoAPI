@@ -3,6 +3,11 @@ const { PrismaClient } = require("@prisma/client")
 const {temperatureData} = new PrismaClient();
 
 exports.handler = async (event, context, callback) => {
+    const headers = {
+        "Access-Control-Allow-Origin": "*", 
+        "Access-Control-Allow-Headers": "Content-Type", 
+        "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+    };
     try {
         const temperature = await temperatureData.findMany({
             select: {
@@ -21,14 +26,14 @@ exports.handler = async (event, context, callback) => {
         })
         return {
             statusCode: 200,
-            headers: {'Content-Type': 'application/json'}, 
+            headers,
             body: JSON.stringify(temperature)
         }
     } catch (error) {
         console.error(error)
         return {
             statusCode: 500,
-            headers: {'Content-Type' : 'application.json'},
+            headers,
             body: JSON.stringify(error)
         }
     }
